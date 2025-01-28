@@ -1,5 +1,5 @@
-  import 'package:flutter/material.dart';
-
+ import 'package:flutter/material.dart';
+   // الويدجت الخاصه بصفخه about the app
 Widget buildPage({
     required String title,
     required List<String> description,

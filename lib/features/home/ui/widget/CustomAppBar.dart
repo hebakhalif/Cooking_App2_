@@ -8,7 +8,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
   @override
   Widget build(BuildContext context) {
     return  AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.transparent, 
         leadingWidth: 20,
         leading: IconButton(
           icon: Icon(
@@ -19,11 +19,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
             Navigator.pop(context);
           },
         ),
-        title: Text("Back",
-         style: TextStyle(
-            color: AppColors.kPrimarColor,
-          ),
-        ),
+       
     );
   }
   @override

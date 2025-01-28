@@ -6,12 +6,12 @@ import 'package:cooking_app_flutter/features/home/ui/widget/CustomButton.dart';
 import 'package:flutter/material.dart';
 
 
-class PageViewExample extends StatefulWidget {
+class OnboardingScreen extends StatefulWidget {
   @override
-  _PageViewExampleState createState() => _PageViewExampleState();
+  _OnboardingScreenState createState() => _OnboardingScreenState();
 }
 
-class _PageViewExampleState extends State<PageViewExample> {
+class _OnboardingScreenState extends State<OnboardingScreen> {
   PageController _pageController = PageController();
   int _currentPage =0;
 
@@ -86,11 +86,22 @@ class _PageViewExampleState extends State<PageViewExample> {
               height: 50,
                color:  AppColors.kPrimarColor,
                 onPressed: (){
+                   
+                   if(_currentPage <2){
+                    _pageController.animateToPage(
+                      _currentPage +1, // هنا لما بدوس ع الزر بيعدي صفحه صفحه 
+                       duration: Duration(milliseconds: 300),
+
+                        curve: Curves.easeInOut,
+                        );
+                   } else{
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) =>  PickYourDietScreen(),));
                 }
+                },
                 ),
                 SizedBox(height: 20),
         ],
@@ -98,3 +109,6 @@ class _PageViewExampleState extends State<PageViewExample> {
     );
   }
 }
+
+
+

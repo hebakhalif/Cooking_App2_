@@ -1,5 +1,5 @@
 
-import 'package:cooking_app_flutter/features/splash/splash_screen.dart';
+import 'package:cooking_app_flutter/features/splash/splash_timer_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 void main() {
@@ -13,12 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(374, 812),
+      designSize: const Size(374, 812), 
       minTextAdapt: true,
       builder: (context, child) {
-    return const MaterialApp(
+    return  MaterialApp(
        debugShowCheckedModeBanner: false,
-       home: SplashScreen() , 
+       home: SplashTimerScreen(), 
        );
       },
     );

@@ -5,10 +5,35 @@ import 'package:cooking_app_flutter/features/home/ui/widget/CustomButton.dart';
 import 'package:cooking_app_flutter/features/home/ui/widget/CustomTextField.dart';
 import 'package:flutter/material.dart';
 
-class CreateAccountScreen extends StatelessWidget {
+
+class CreateAccountScreen extends StatefulWidget {
   CreateAccountScreen({super.key});
 
+  @override
+  State<CreateAccountScreen> createState() => _CreateAccountScreenState();
+}
+
+class _CreateAccountScreenState extends State<CreateAccountScreen> {
   final TextEditingController emailController = TextEditingController();
+  String? errorMessage; 
+
+  void _validateAndNavigate() {
+    if (emailController.text.isEmpty) {
+      setState(() {
+        errorMessage = "Please enter your email address";
+      });
+    } else {
+      setState(() {
+        errorMessage = null;
+      });
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => LayoutScreen(),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +58,10 @@ class CreateAccountScreen extends StatelessWidget {
             Text(
               "Share your account with your family and across devices.",
               style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black38),
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.black38,
+              ),
             ),
             SizedBox(
               height: 20,
@@ -54,23 +80,26 @@ class CreateAccountScreen extends StatelessWidget {
             Customtextfield(
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
-              obscureText: true,
+              obscureText: false,
             ),
+            if (errorMessage != null) // عرض رسالة الخطأ إذا كانت موجودة
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Text(
+                  errorMessage!,
+                  style: TextStyle(color: Colors.red, fontSize: 14),
+                ),
+              ),
             SizedBox(
               height: 24,
             ),
             Custombutton(
-                text: "Done",
-                width: 390,
-                height: 50,
-                color: AppColors.kPrimarColor,
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>  LayoutScreen(),
-                    ));
-                }),
+              text: "Done",
+              width: 390,
+              height: 50,
+              color: AppColors.kPrimarColor,
+              onPressed: _validateAndNavigate, // التحقق قبل الانتقال
+            ),
             SizedBox(
               height: 20,
             ),
@@ -83,11 +112,6 @@ class CreateAccountScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 GestureDetector(
-                  onTap: () {
-                    // Navigator.push(context,
-                    // MaterialPageRoute(builder: (context)=>  SingIn())
-                    // ) ;
-                  },
                   child: Text(
                     "Terms",
                     style: TextStyle(
@@ -105,4 +129,5 @@ class CreateAccountScreen extends StatelessWidget {
       ),
     );
   }
-}
+  }
+
