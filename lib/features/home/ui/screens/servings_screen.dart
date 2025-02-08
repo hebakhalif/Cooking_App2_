@@ -1,8 +1,10 @@
 import 'package:cooking_app_flutter/core/themes/app_colors.dart';
+import 'package:cooking_app_flutter/core/themes/styles.dart';
 import 'package:cooking_app_flutter/features/home/ui/screens/create_account_screen.dart';
 import 'package:cooking_app_flutter/features/home/ui/widget/CustomAppBar.dart';
 import 'package:cooking_app_flutter/features/home/ui/widget/CustomButton.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ServingsScreen extends StatefulWidget {
   const ServingsScreen({super.key});
@@ -23,10 +25,12 @@ class _ServingsScreenState extends State<ServingsScreen> {
     {"title": "6 servings", "subtitle": "for a family of 5+"},
    
   ];
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: AppColors.backgroundWhite,
           appBar: CustomAppBar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,10 +39,10 @@ class _ServingsScreenState extends State<ServingsScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
               "How mant servings per meal?",
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              style: TextStyles.font26bold,
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 20.h),
           Expanded(
             child: ListView.builder(
               itemCount: dietOptions.length,
@@ -54,9 +58,9 @@ class _ServingsScreenState extends State<ServingsScreen> {
 
                     child: Container(
                     margin: const EdgeInsets.symmetric(
-                        horizontal: 10.0, vertical: 7.0),
+                        horizontal: 10.0, vertical: 4.0),
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 16.0, vertical: 20.0),
+                        horizontal: 10.0, vertical: 10.0),
                     decoration: BoxDecoration(
                       color: isSelected
                           ? Colors.amber.shade200
@@ -69,22 +73,15 @@ class _ServingsScreenState extends State<ServingsScreen> {
                       children: [
                         Text(
                            option['title']!,
-                            style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                            style: TextStyles.font18bold,
                         ),
                         Text(
                            option['subtitle']!,
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black54,
-                            ),
+                            style: TextStyles.font16blak45,  
                         )
                       ],
                     ),
                     ),
-
-                      
-
                 );
               })),
 
@@ -95,14 +92,16 @@ class _ServingsScreenState extends State<ServingsScreen> {
                 height: 50,
                 color: AppColors.kPrimarColor,
                 onPressed: () {
+                  // context.push(Routes.createAccount)
                     Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => CreateAccountScreen(),
                     ));
+
                 }),
           ),
-          SizedBox(height: 30,),
+          SizedBox(height: 30.h),
         ]
       ));
   }

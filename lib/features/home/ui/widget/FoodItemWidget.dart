@@ -14,54 +14,27 @@ class _FooditemwidgetState extends State<Fooditemwidget> {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        child: Row( 
+        child: Row(
           children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.asset(
-                      "assets/images/WhatsApp Image 2025-01-27 at 11.41.48 PM.jpeg",
-                     height: 200,
-                     width: 190,
-                      ),
-                      Text("Spicy Peruvian Roast\n Chicken with Sweet\n Potatoes & Cilantro-Fet",
-                      style: TextStyle(
-                        fontSize: 16,
-                         fontWeight: FontWeight.bold
-                      ),
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                      
-                      )
-                  ],
-                ),
-              ),
-              SizedBox(width: 30,),
-              Column(
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
-                        "assets/images/WhatsApp Image 2025-01-27 at 11.41.48 PM.jpeg",
-                       height: 200,
-                       width: 200,
-                        ),
+                  Image.asset(
+                    "assets/images/WhatsApp Image 2025-01-27 at 11.41.48 PM.jpeg",
+                    height: 200,
+                    width: 190,
                   ),
-                        Text("Spicy Peruvian Roast\n Chicken with Sweet\n Potatoes & Cilantro-Fet",
-                      style: TextStyle(
-                        fontSize: 16,
-                         fontWeight: FontWeight.bold,
-                      ),
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                      
-                      )
+                  Text(
+                    "assets/images/WhatsApp Image 2025-01-27 at 11.41.48 PM.jpeg",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                  )
                 ],
               ),
-              SizedBox()
+            ),
           ],
         ),
       ),

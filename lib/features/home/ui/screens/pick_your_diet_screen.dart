@@ -1,10 +1,14 @@
 import 'package:cooking_app_flutter/core/themes/app_colors.dart';
+import 'package:cooking_app_flutter/core/themes/styles.dart';
 import 'package:cooking_app_flutter/features/home/ui/screens/servings_screen.dart';
 import 'package:cooking_app_flutter/features/home/ui/widget/CustomAppBar.dart';
 import 'package:cooking_app_flutter/features/home/ui/widget/CustomButton.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PickYourDietScreen extends StatefulWidget {
+  const PickYourDietScreen({super.key});
+
   @override
   _PickYourDietScreenState createState() => _PickYourDietScreenState();
 }
@@ -26,6 +30,7 @@ class _PickYourDietScreenState extends State<PickYourDietScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: AppColors.backgroundWhite,
       appBar: CustomAppBar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,10 +39,10 @@ class _PickYourDietScreenState extends State<PickYourDietScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
               "Pick your diet",
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              style: TextStyles.font26bold,
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 20.h),
           Expanded(
             child: ListView.builder(
               itemCount: dietOptions.length,
@@ -53,9 +58,9 @@ class _PickYourDietScreenState extends State<PickYourDietScreen> {
                   },
                   child: Container(
                     margin: const EdgeInsets.symmetric(
-                        horizontal: 10.0, vertical: 3.0),
+                        horizontal: 10.0, vertical: 4.0),
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 16.0, vertical: 13.0),
+                        horizontal: 10.0, vertical: 10.0),
                     decoration: BoxDecoration(
                       color: isSelected
                           ? Colors.amber.shade200
@@ -67,16 +72,12 @@ class _PickYourDietScreenState extends State<PickYourDietScreen> {
                       children: [
                         Text(
                           option['title']!,
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                          style: TextStyles.font18bold,    
                         ),
                         if (option['subtitle']!.isNotEmpty)
                           Text(
                             option['subtitle']!,
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black54,
-                            ),
+                            style: TextStyles.font16blak45,
                           ),
                       ],
                     ),
@@ -100,7 +101,7 @@ class _PickYourDietScreenState extends State<PickYourDietScreen> {
                 }),
           ),
           SizedBox(
-            height: 30,
+            height: 30.h,
           ),
         ],
       ),

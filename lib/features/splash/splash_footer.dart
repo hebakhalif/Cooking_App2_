@@ -1,12 +1,14 @@
 import 'package:cooking_app_flutter/features/home/ui/widget/CustomButton.dart';
+import 'package:cooking_app_flutter/models/auth/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:cooking_app_flutter/core/themes/app_colors.dart';
 import 'package:cooking_app_flutter/features/home/ui/screens/onboarding_screen.dart';
-import 'package:cooking_app_flutter/modules/auth/sign_in.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 
 class SplashFooter extends StatelessWidget {
-  const SplashFooter({Key? key}) : super(key: key);
+  const SplashFooter({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class SplashFooter extends StatelessWidget {
                   ));
                 }
                 ),
-        const SizedBox(height: 10),
+         SizedBox(height: 10.h),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -34,10 +36,10 @@ class SplashFooter extends StatelessWidget {
               "Already a member?",
               style: TextStyle(
                 color: Colors.black45,
-                fontSize: 18,
+                fontSize: 16,
               ),
             ),
-            const SizedBox(width: 10),
+             SizedBox(width: 10.w),
             GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -50,14 +52,14 @@ class SplashFooter extends StatelessWidget {
                 style: TextStyle(
                   decoration: TextDecoration.underline,
                   color: Colors.black45,
-                  fontSize: 20,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
           ],
         ),
-        const SizedBox(height: 20),
+       SizedBox(height: 20.h),
       ],
     );
   }}

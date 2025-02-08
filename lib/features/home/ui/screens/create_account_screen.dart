@@ -1,13 +1,15 @@
 import 'package:cooking_app_flutter/core/themes/app_colors.dart';
+import 'package:cooking_app_flutter/core/themes/styles.dart';
 import 'package:cooking_app_flutter/features/home/ui/screens/layout_screen.dart';
 import 'package:cooking_app_flutter/features/home/ui/widget/CustomAppBar.dart';
 import 'package:cooking_app_flutter/features/home/ui/widget/CustomButton.dart';
 import 'package:cooking_app_flutter/features/home/ui/widget/CustomTextField.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class CreateAccountScreen extends StatefulWidget {
-  CreateAccountScreen({super.key});
+  const CreateAccountScreen({super.key});
 
   @override
   State<CreateAccountScreen> createState() => _CreateAccountScreenState();
@@ -38,6 +40,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: AppColors.backgroundWhite,
       appBar: CustomAppBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -53,29 +56,21 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 20.h
             ),
             Text(
               "Share your account with your family and across devices.",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.black38,
-              ),
+              style: TextStyles.font20blackbold,
             ),
             SizedBox(
-              height: 20,
+              height: 20.h
             ),
             Text(
               "Email address",
-              style: TextStyle(
-                fontSize: 21,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
-              ),
+              style: TextStyles.font21blac87bold,
             ),
             SizedBox(
-              height: 10,
+              height: 10.h
             ),
             Customtextfield(
               controller: emailController,
@@ -84,14 +79,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             ),
             if (errorMessage != null) // عرض رسالة الخطأ إذا كانت موجودة
               Padding(
-                padding: const EdgeInsets.only(top: 8.0),
+                padding: const EdgeInsets.only(top: 8),
                 child: Text(
                   errorMessage!,
-                  style: TextStyle(color: Colors.red, fontSize: 14),
+                  style: TextStyles.fonterrorMessage,  
                 ),
               ),
             SizedBox(
-              height: 24,
+              height: 24.h
             ),
             Custombutton(
               text: "Done",
@@ -101,25 +96,20 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               onPressed: _validateAndNavigate, // التحقق قبل الانتقال
             ),
             SizedBox(
-              height: 20,
+              height: 20.h
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
+                 Text(
                   "By using Mealim you agree to our",
-                  style: TextStyle(color: Colors.black45, fontSize: 16),
+                  style: TextStyles.font16blak45,
                 ),
-                const SizedBox(width: 10),
+                 SizedBox(width: 10.w),
                 GestureDetector(
                   child: Text(
                     "Terms",
-                    style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      color: Colors.black45,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyles.font16blak45bold,
                   ),
                 ),
               ],

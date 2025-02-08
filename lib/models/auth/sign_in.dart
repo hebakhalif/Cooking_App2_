@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:cooking_app_flutter/core/themes/app_colors.dart';
 import 'package:cooking_app_flutter/features/home/ui/screens/onboarding_screen.dart';
@@ -7,7 +6,7 @@ import 'package:cooking_app_flutter/features/home/ui/widget/CustomAppBar.dart';
 import 'package:cooking_app_flutter/features/home/ui/widget/CustomButton.dart';
 import 'package:cooking_app_flutter/features/home/ui/widget/CustomTextField.dart';
 import 'package:cooking_app_flutter/features/home/ui/widget/PasswordField.dart';
-import 'package:cooking_app_flutter/modules/auth/set_password.dart';
+import 'package:cooking_app_flutter/models/auth/set_password.dart';
 import 'package:flutter/material.dart';
 
 /*  class SingIn extends StatelessWidget {
@@ -161,22 +160,22 @@ class _SingInState extends State<SingIn> {
       errorMessageEmail = null;
       errorMessagePassword = null;
     });
-    bool _isValid = true;
+    bool isValid = true;
 
     if (emailController.text.isEmpty) {
       setState(() {
         errorMessageEmail = "Pleas enter your Email";
       });
-      _isValid = false;
+      isValid = false;
     }
     if (passwordController.text.isEmpty) {
       setState(() {
         errorMessagePassword = "Pleas enter your Password";
       });
 
-      _isValid = false;
+      isValid = false;
     }
-    if (_isValid) {
+    if (isValid) {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => LayoutScreen()),

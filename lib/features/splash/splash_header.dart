@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class SplashHeader extends StatelessWidget {
-  const SplashHeader({Key? key}) : super(key: key);
+  const SplashHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +16,9 @@ class SplashHeader extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        Image.asset(
-          "assets/images/food.png",
-          height: 150,
+         Image.asset(
+          "assets/images/logo.png",
+          height: 140,
         ),
       ],
     );

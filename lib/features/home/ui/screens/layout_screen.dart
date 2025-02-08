@@ -31,12 +31,13 @@ class _LayoutScreenState extends State<LayoutScreen> {
   @override
   Widget build(BuildContext context) { 
     return Scaffold(
+        backgroundColor: AppColors.backgroundWhite,
       body: _screens[_selectedIndex],  
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex, 
         onTap: _onTap,
-        selectedItemColor: AppColors.kPrimarColor,  
-        unselectedItemColor: Colors.grey,  
+        selectedItemColor: AppColors.kPrimarColor,  // لون الايتم الي انا واقفه عليها 
+        unselectedItemColor: Colors.grey,  // لون الايتم الي مش واقفه عليها 
         iconSize: 30.0, 
         selectedLabelStyle: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),  // تكبير النص للأيقونات المحددة
         unselectedLabelStyle: TextStyle(

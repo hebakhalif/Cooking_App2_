@@ -7,12 +7,14 @@ import 'package:flutter/material.dart';
 
 
 class OnboardingScreen extends StatefulWidget {
+  const OnboardingScreen({super.key});
+
   @override
   _OnboardingScreenState createState() => _OnboardingScreenState();
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
   int _currentPage =0;
 
   @override
@@ -24,6 +26,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundWhite,
       appBar: CustomAppBar(),
       body: Column(
         children: [
@@ -37,14 +40,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               },
               children: [
                 buildPage(
-                  title: "Personalize\nmeal plannig",
+                   title: "Personalize\nmeal plannig",
                   description: [
                     "Pick your week's meals in minutes. with",
                     "over 200 personalized options, eat",
                     "exactly how you want to eat.",
                   ],
-                  imagePath: "assets/images/WhatsApp_Image_2025-01-15_at_7.26.43_PM-removebg-preview.png",
-                ),
+                   imagePath: "assets/images/WhatsApp_Image_2025-01-15_at_7.26.43_PM-removebg-preview.png",
+                  ),
+               
                 buildPage(
                   title: "Simple,stress-free\ngrocery shopping",
                   description: [
